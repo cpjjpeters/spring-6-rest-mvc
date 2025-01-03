@@ -4,6 +4,7 @@ import guru.springframework.spring6restmvc.model.BeerStyle;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -22,7 +23,8 @@ public class Beer {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @UuidGenerator()
     @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
     private UUID id;
 
